@@ -30,8 +30,19 @@ class ViewController: UIViewController {
         chipOutlet.image = UIImage(named: "chips")
         milkOutlet.image = UIImage(named: "milk")
     }
+    //Arrays
     var menu = ["Chicken","Egg","Hotdog","Chip","Milk"]
     var menuPrice = [10,5,3,1,6]
-
+    var cart: [String:Int] = [:]
+    //
+    @IBAction func purchaseAction(_ sender: Any) {
+        var name = nameFieldOutlet.text ?? ""
+        var price = priceFieldOutlet.text ?? ""
+        var index = 0
+        while(index<menu.count){
+            
+        }
+        
+    }
+    
 }
-
