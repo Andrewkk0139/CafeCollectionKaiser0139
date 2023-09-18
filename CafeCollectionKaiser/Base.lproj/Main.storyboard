@@ -59,7 +59,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-JM-WiO">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Htx-JM-WiO">
                                 <rect key="frame" x="249" y="565" width="97" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -113,6 +113,13 @@
                                     <action selector="purchaseAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FbO-os-bVs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-Nq-aLc">
+                                <rect key="frame" x="150" y="684" width="92" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.86078912019729614" green="0.60680951312740694" blue="0.5290937556323666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -124,6 +131,7 @@
                         <outlet property="chipOutlet" destination="AAW-3X-AKA" id="59s-1N-uMt"/>
                         <outlet property="eggOutlet" destination="ueT-h4-Hx3" id="hlQ-Yp-XJM"/>
                         <outlet property="hotdogOutlet" destination="2JJ-HO-cHX" id="Y5c-iG-FlN"/>
+                        <outlet property="invalidOutlet" destination="pNO-Nq-aLc" id="5Sg-H7-GHV"/>
                         <outlet property="milkOutlet" destination="PSd-FH-ZDn" id="BDz-s5-Ckl"/>
                         <outlet property="nameFieldOutlet" destination="Pz0-i7-Iur" id="HLl-GI-Vs7"/>
                         <outlet property="priceFieldOutlet" destination="Htx-JM-WiO" id="7Z6-0k-piN"/>

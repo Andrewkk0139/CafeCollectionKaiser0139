@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     //name and quantity fields
     @IBOutlet weak var nameFieldOutlet: UITextField!
     @IBOutlet weak var priceFieldOutlet: UITextField!
+    @IBOutlet weak var invalidOutlet: UILabel!
+    var cartCount = 0
     //
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +31,31 @@ class ViewController: UIViewController {
         hotdogOutlet.image = UIImage(named: "hotdog")
         chipOutlet.image = UIImage(named: "chips")
         milkOutlet.image = UIImage(named: "milk")
+        invalidOutlet.isHidden = true
     }
     //Arrays
-    var menu = ["Chicken","Egg","Hotdog","Chip","Milk"]
+    var menu = ["chicken","egg","hotdog","chip","milk"]
     var menuPrice = [10,5,3,1,6]
     var cart: [String:Int] = [:]
     //
     @IBAction func purchaseAction(_ sender: Any) {
+        print("button clicked")
         var name = nameFieldOutlet.text ?? ""
-        var price = priceFieldOutlet.text ?? ""
+        var quantity = priceFieldOutlet.text ?? ""
         var index = 0
         while(index<menu.count){
-            
+            if(name.lowercased() == menu[index]){
+                print(menu[index])
+                cartCount+=1
+                cartCounterOutlet.text = "\(cartCount)"
+            } else{
+                invalidOutlet.isHidden = false
+            }
+            index+=1
         }
         
     }
-    
+    func newScene(){
+        
+    }
 }
