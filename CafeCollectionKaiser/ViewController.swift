@@ -21,7 +21,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceFieldOutlet: UITextField!
     @IBOutlet weak var invalidOutlet: UILabel!
     var cartCount = 0
-    //
+    // lables
+    @IBOutlet weak var tenDollarOutlet: UILabel!
+    @IBOutlet weak var fiveDollarOutlet: UILabel!
+    @IBOutlet weak var threeDollarOutlet: UILabel!
+    @IBOutlet weak var oneDollarOutlet: UILabel!
+    @IBOutlet weak var sixDollarOutlet: UILabel!
+    @IBOutlet weak var purchaseButton: UIButton!
+    @IBOutlet weak var backOutlet: UIButton!
+    //cartTextField
+    @IBOutlet weak var cartTextFieldOutlet: UITextView!
+    //addedTextField
+    @IBOutlet weak var addedTextField: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -32,6 +43,11 @@ class ViewController: UIViewController {
         chipOutlet.image = UIImage(named: "chips")
         milkOutlet.image = UIImage(named: "milk")
         invalidOutlet.isHidden = true
+        cartTextFieldOutlet.isHidden = true
+        backOutlet.isHidden = true
+        
+
+        
     }
     //Arrays
     var menu = ["chicken","egg","hotdog","chip","milk"]
@@ -41,21 +57,71 @@ class ViewController: UIViewController {
     @IBAction func purchaseAction(_ sender: Any) {
         print("button clicked")
         var name = nameFieldOutlet.text ?? ""
-        var quantity = priceFieldOutlet.text ?? ""
+        var quantity = Int(priceFieldOutlet.text!)
         var index = 0
+        var checkingCart = Array(cart.keys)
+        checkingCart.append("")
         while(index<menu.count){
-            if(name.lowercased() == menu[index]){
-                print(menu[index])
-                cartCount+=1
-                cartCounterOutlet.text = "\(cartCount)"
+            if(name.lowercased() == menu[index] && name.lowercased() != checkingCart[0]){
+                if let a = quantity {
+                    invalidOutlet.isHidden = true
+                    print(menu[index])
+                    cartCount+=1
+                    cartCounterOutlet.text = "\(cartCount)"
+                    cart[name.lowercased()] = (quantity ?? 0) * menuPrice[index]
+                    print(cart)
+                    break
+                }
             } else{
                 invalidOutlet.isHidden = false
             }
             index+=1
         }
-        
     }
-    func newScene(){
-        
+    @IBAction func cartAction(_ sender: Any) {
+        cartScene()
+    }
+    
+    @IBAction func backAction(_ sender: Any) {
+        chickenOutlet.isHidden = false
+        eggOutlet.isHidden = false
+        hotdogOutlet.isHidden = false
+        chipOutlet.isHidden = false
+        milkOutlet.isHidden = false
+        tenDollarOutlet.isHidden = false
+        fiveDollarOutlet.isHidden = false
+        threeDollarOutlet.isHidden = false
+        oneDollarOutlet.isHidden = false
+        sixDollarOutlet.isHidden = false
+        purchaseButton.isHidden = false
+        nameFieldOutlet.isHidden = false
+        priceFieldOutlet.isHidden = false
+        cartTextFieldOutlet.isHidden = true
+        cartTextFieldOutlet.text = ""
+        cartOutlet.isHidden = false
+        cartCounterOutlet.isHidden = false
+    }
+    func cartScene(){
+        backOutlet.isHidden = false
+        chickenOutlet.isHidden = true
+        eggOutlet.isHidden = true
+        hotdogOutlet.isHidden = true
+        chipOutlet.isHidden = true
+        milkOutlet.isHidden = true
+        tenDollarOutlet.isHidden = true
+        fiveDollarOutlet.isHidden = true
+        threeDollarOutlet.isHidden = true
+        oneDollarOutlet.isHidden = true
+        sixDollarOutlet.isHidden = true
+        purchaseButton.isHidden = true
+        nameFieldOutlet.isHidden = true
+        priceFieldOutlet.isHidden = true
+        addedTextField.isHidden = true
+        cartOutlet.isHidden = true
+        cartCounterOutlet.isHidden = true
+        cartTextFieldOutlet.isHidden = false
+        for (name2,price) in cart{
+            cartTextFieldOutlet.text += "\n \(name2): $\(price)"
+        }
     }
 }
