@@ -165,12 +165,64 @@
                                     <action selector="backAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NTw-0L-J8R"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ZY-Te-6Mh">
+                                <rect key="frame" x="16" y="653" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTD-iZ-5hw">
+                                <rect key="frame" x="16" y="695" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ll3-Oy-rlC">
+                                <rect key="frame" x="24" y="737" width="76" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Login">
+                                    <fontDescription key="titleFontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XVX-b6-ATX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xa3-tN-nf1">
+                                <rect key="frame" x="129" y="655" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZc-0N-B6X">
+                                <rect key="frame" x="129" y="697" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nai-QP-1ET">
+                                <rect key="frame" x="129" y="736" width="76" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Add">
+                                    <fontDescription key="titleFontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addingItemAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p3k-7b-8Ez"/>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i6r-DQ-SQW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.86078912019729614" green="0.60680951312740694" blue="0.5290937556323666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
+                        <outlet property="addButtonOutlet" destination="nai-QP-1ET" id="tMo-1f-UoC"/>
                         <outlet property="addedTextField" destination="5A1-rH-enI" id="Maw-6p-OcR"/>
+                        <outlet property="adminPriceFieldOutlet" destination="JZc-0N-B6X" id="g7Z-SW-fWC"/>
                         <outlet property="backOutlet" destination="P6M-3s-lys" id="Gyb-kn-UW9"/>
                         <outlet property="cartCounterOutlet" destination="sEA-Qt-pjY" id="XNa-DW-Ngm"/>
                         <outlet property="cartOutlet" destination="fTx-ec-ddU" id="rGj-Nz-zdH"/>
@@ -181,14 +233,18 @@
                         <outlet property="fiveDollarOutlet" destination="Zfs-gX-tg4" id="wiV-1z-cGk"/>
                         <outlet property="hotdogOutlet" destination="2JJ-HO-cHX" id="Y5c-iG-FlN"/>
                         <outlet property="invalidOutlet" destination="pNO-Nq-aLc" id="5Sg-H7-GHV"/>
+                        <outlet property="itemFieldOutlet" destination="Xa3-tN-nf1" id="Yaf-KR-zeb"/>
+                        <outlet property="loginOutlet" destination="ll3-Oy-rlC" id="MWJ-mf-CzJ"/>
                         <outlet property="milkOutlet" destination="PSd-FH-ZDn" id="BDz-s5-Ckl"/>
                         <outlet property="nameFieldOutlet" destination="Pz0-i7-Iur" id="HLl-GI-Vs7"/>
                         <outlet property="oneDollarOutlet" destination="qLJ-jf-CNc" id="jOd-k5-ge9"/>
-                        <outlet property="priceFieldOutlet" destination="Htx-JM-WiO" id="7Z6-0k-piN"/>
+                        <outlet property="passwordOutlet" destination="uTD-iZ-5hw" id="Bf1-Kb-Dgd"/>
+                        <outlet property="priceFieldOutlet" destination="Htx-JM-WiO" id="cvc-hp-Fi1"/>
                         <outlet property="purchaseButton" destination="xUc-im-jvS" id="WmE-dU-HTy"/>
                         <outlet property="sixDollarOutlet" destination="CGp-BK-PhZ" id="Wel-Ec-v5s"/>
                         <outlet property="tenDollarOutlet" destination="jrn-Du-Z2q" id="7qV-Sz-BeZ"/>
                         <outlet property="threeDollarOutlet" destination="N7W-Vm-TTJ" id="Nao-ut-MyR"/>
+                        <outlet property="usernameOutlet" destination="0ZY-Te-6Mh" id="D0y-xk-eFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

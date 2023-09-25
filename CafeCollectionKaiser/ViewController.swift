@@ -20,6 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameFieldOutlet: UITextField!
     @IBOutlet weak var priceFieldOutlet: UITextField!
     @IBOutlet weak var invalidOutlet: UILabel!
+    @IBOutlet weak var usernameOutlet: UITextField!
+    @IBOutlet weak var passwordOutlet: UITextField!
+    
+    @IBOutlet weak var itemFieldOutlet: UITextField!
+    @IBOutlet weak var adminPriceFieldOutlet: UITextField!
     var cartCount = 0
     // lables
     @IBOutlet weak var tenDollarOutlet: UILabel!
@@ -33,6 +38,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var cartTextFieldOutlet: UITextView!
     //addedTextField
     @IBOutlet weak var addedTextField: UITextView!
+    //username and password
+    var username = "Admin"
+    var password = 0139
+    //buttons
+    @IBOutlet weak var addButtonOutlet: UIButton!
+    
+    @IBOutlet weak var loginOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,7 +58,11 @@ class ViewController: UIViewController {
         invalidOutlet.isHidden = true
         cartTextFieldOutlet.isHidden = true
         backOutlet.isHidden = true
-        
+        usernameOutlet.isHidden = true
+        passwordOutlet.isHidden = true
+        itemFieldOutlet.isHidden = true
+        adminPriceFieldOutlet.isHidden = true
+        addButtonOutlet.isHidden = true
 
         
     }
@@ -82,6 +99,24 @@ class ViewController: UIViewController {
         cartScene()
     }
     
+    @IBAction func loginAction(_ sender: Any) {
+       // print("login attempted: \(usernameOutlet.text ?? "nill") and \(Int(passwordOutlet.text ?? "0")"))
+        if((usernameOutlet.text ?? "nill").lowercased() == username && Int(passwordOutlet.text ?? "0") == password) {
+            itemFieldOutlet.isHidden = false
+            adminPriceFieldOutlet.isHidden = false
+            addButtonOutlet.isHidden = true
+        }
+    }
+
+    @IBAction func addingItemAction(_ sender: Any) {
+        if let x = itemFieldOutlet.text {
+            if let y = Int(itemFieldOutlet.text!){
+               // menu[x] = y
+                addedTextField.text += "\(x): $\(y)"
+            }
+        }
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         chickenOutlet.isHidden = false
         eggOutlet.isHidden = false
@@ -100,6 +135,13 @@ class ViewController: UIViewController {
         cartTextFieldOutlet.text = ""
         cartOutlet.isHidden = false
         cartCounterOutlet.isHidden = false
+        usernameOutlet.isHidden = true
+        passwordOutlet.isHidden = true
+        addedTextField.isHidden = false
+        itemFieldOutlet.isHidden = true
+        adminPriceFieldOutlet.isHidden = true
+        addButtonOutlet.isHidden = true
+
     }
     func cartScene(){
         backOutlet.isHidden = false
@@ -120,6 +162,9 @@ class ViewController: UIViewController {
         cartOutlet.isHidden = true
         cartCounterOutlet.isHidden = true
         cartTextFieldOutlet.isHidden = false
+        usernameOutlet.isHidden = false
+        passwordOutlet.isHidden = false
+        
         for (name2,price) in cart{
             cartTextFieldOutlet.text += "\n \(name2): $\(price)"
         }
